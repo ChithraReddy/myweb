@@ -1,4 +1,9 @@
-FROM tomcat:8.0.20-jre8
-# Dummy text to test 
-COPY target/myweb*.war /usr/local/tomcat/webapps/myweb.war
+# Use a Python image
+FROM python:3.8-slim
+
+# Copy your Python app into the image
+COPY app.py /app.py
+
+# Run the app with the CMD
+CMD ["python", "/app.py"]
 

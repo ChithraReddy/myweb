@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 try{
 	node{
 	    properties([parameters([choice(choices: ['master', 'dev', 'qa', 'staging'], description: 'Choose branch to build and deploy', name: 'gitBranch')]), pipelineTriggers([pollSCM('')])])
@@ -31,3 +32,6 @@ try{
 				  message: "Job -  ${env.JOB_NAME}, Failed, Build URL is ${env.BUILD_URL}"
    error 'Something wrong'
 }
+=======
+pipeline {\n    agent any\n\n    stages {\n        stage("Checkout") {\n            steps {\n                git branch: "main", url: "https://github.com/your-username/your-repo.git"\n            }\n        }\n        stage("Build") {\n            steps {\n                script {\n                    echo "Building Application..."\n                }\n            }\n        }\n        stage("Deploy") {\n            steps {\n                echo "Deploying application..."\n            }\n        }\n    }\n}
+>>>>>>> 1ebef29 (Initial commit)
